@@ -3,27 +3,27 @@
 var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
-// var CourseActions = require('../../actions/courseActions');
-// var CourseStore = require('../../stores/courseStore');
+var CourseActions = require('../../actions/courseActions');
+var CourseStore = require('../../stores/courseStore');
 var CourseList = require('./courseList');
 
 var CoursePage = React.createClass({
   getInitialState: function() {
     return {
-      courses: [] //CourseStore.getAllCourses()
+      courses: CourseStore.getAllCourses()
     };
   },
 
   componentWillMount: function() {
-    // CourseStore.addChangeListener(this._onChange);
+    CourseStore.addChangeListener(this._onChange);
   },
 
   componentWillUnmount: function() {
-    // CourseStore.removeChangeListener(this._onChange);
+    CourseStore.removeChangeListener(this._onChange);
   },
 
   _onChange: function() {
-    // this.setState({ course: CourseStore.getAllCourses() });
+    this.setState({ course: CourseStore.getAllCourses() });
   },
 
   render: function() {

@@ -2,8 +2,8 @@
 
 var React = require('react');
 var CourseForm = require('./courseForm');
-// var CourseActions = require('../../actions/courseActions');
-// var CourseStore = require('../../stores/courseStore');
+var CourseActions = require('../../actions/courseActions');
+var CourseStore = require('../../stores/courseStore');
 var Router = require('react-router');
 var toastr = require('toastr');
 
@@ -38,9 +38,9 @@ var ManageCoursePage = React.createClass({
     var courseId = this.props.params.id;
 
     if (courseId) {
-      // this.setState({
-      //   course: CourseStore.getCourseById(courseId)
-      // });
+      this.setState({
+        course: CourseStore.getCourseById(courseId)
+      });
     }
   },
 
