@@ -4,6 +4,7 @@ var React = require('react');
 var CourseForm = require('./courseForm');
 var CourseActions = require('../../actions/courseActions');
 var CourseStore = require('../../stores/courseStore');
+var AuthorStore = require('../../stores/authorStore');
 var Router = require('react-router');
 var toastr = require('toastr');
 
@@ -30,6 +31,7 @@ var ManageCoursePage = React.createClass({
         length: ''
       },
       errors: {},
+      authors: AuthorStore.getAllAuthors(),
       dirty: false
     };
   },
@@ -96,6 +98,7 @@ var ManageCoursePage = React.createClass({
         <h1>Manage Course</h1>
         <CourseForm
           course={this.state.course}
+          authors={this.state.authors}
           onChange={this.setCourseState}
           onSave={this.saveCourse}
           errors={this.state.errors} />
